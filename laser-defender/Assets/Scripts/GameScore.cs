@@ -10,9 +10,6 @@ public static class GameScore
     public delegate void WavesUpdated();
     public static event WavesUpdated E_WavesUpdated;
 
-    public delegate void TitleUpdated();
-    public static event TitleUpdated E_TitleUpdated;
-
     public static int CurrentScore { get; private set; }
 
     public static int WavesCleared { get; private set; }

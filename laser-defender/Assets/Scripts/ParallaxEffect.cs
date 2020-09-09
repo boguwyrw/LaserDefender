@@ -12,7 +12,7 @@ public class ParallaxEffect : MonoBehaviour {
 	
 	[SerializeField] private float _cameraSpeedMultiplier = 1f;
 
-	[SerializeField] private GameObject _player;
+	[SerializeField] private GameObject _player = null;
 
 	private Transform _gameCameraTransform;
 	private float _leeway;

@@ -121,7 +121,10 @@ public class PlayerShip : MonoBehaviour {
 				Instantiate(_shipExplosion, _shipTransform.position, Quaternion.identity);
 				
 				FindObjectOfType<GameScene>().EndGame();
+
+				GameScore.UpdateWaves(FindObjectOfType<WavesManager>().CurrentWave - 1);
 				GameScore.UpdateTitle("GAME OVER !");
+
 				Destroy(this.gameObject);
 			} 
 		}

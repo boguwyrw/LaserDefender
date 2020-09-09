@@ -119,7 +119,7 @@ public class Enemy : MonoBehaviour {
 		AudioSource.PlayClipAtPoint(gettingHitSounds[Random.Range(0,gettingHitSounds.Length)], _bodyTransform.position, 1f);
 		AudioSource.PlayClipAtPoint(_deathSound, _bodyTransform.position, 5f);
 		GameScore.UpdateScore(_scoreValue);
+		
 		Destroy(this.gameObject);
 	}
-
 }

@@ -24,6 +24,7 @@ public class WavesManager : MonoBehaviour
         _maxPositionX = playSpaceWidth / 2f - 0.5f;
         _minPositionX = (playSpaceWidth / 2f - 0.5f) * -1f;
         CurrentWave = 1;
+
         SetupWavesAndSpawn();
     }
 
@@ -59,22 +60,13 @@ public class WavesManager : MonoBehaviour
 
     private void FindingEnemies()
     {
-        List<GameObject> enemiesList = new List<GameObject>();
-        GameObject[] enemies = FindObjectsOfType<GameObject>();
-        for (int i = 0; i < enemies.Length; i++)
-        {
-            if (enemies[i].layer == 10)
-            {
-                enemiesList.Add(enemies[i]);
-            }
-        }
-
-        if (enemiesList.Count == 0)
+        if (GameObject.FindGameObjectWithTag("Enemies") == null)
         {
             if (CurrentWave == wavesConfigurations.Length)
             {
                 GameScene gameScene = FindObjectOfType<GameScene>();
-                GameScore.UpdateTitle("YOU WON !");
+                string successTitle = "YOU WON !";
+                GameScore.UpdateTitle(successTitle);
                 gameScene.EndGame();
             }
             else

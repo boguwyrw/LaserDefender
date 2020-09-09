@@ -123,7 +123,8 @@ public class PlayerShip : MonoBehaviour {
 				FindObjectOfType<GameScene>().EndGame();
 
 				GameScore.UpdateWaves(FindObjectOfType<WavesManager>().CurrentWave - 1);
-				GameScore.UpdateTitle("GAME OVER !");
+				string failureTitle = "GAME OVER !";
+				GameScore.UpdateTitle(failureTitle);
 
 				Destroy(this.gameObject);
 			} 

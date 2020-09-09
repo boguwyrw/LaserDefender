@@ -12,6 +12,9 @@ public class WavesManager : MonoBehaviour
 
     private float _maxPositionX;
     private float _minPositionX;
+
+    [SerializeField]
+    private float positionY = 4.3f;
     
     public WavesConfiguration[] wavesConfigurations;
 
@@ -47,7 +50,7 @@ public class WavesManager : MonoBehaviour
         {
             for (int j = 0; j < wavesConfigurations[CurrentWave - 1].numberOfEnemies[i]; j++)
             {
-                Instantiate(wavesConfigurations[CurrentWave - 1].numberOfEnemyTypesList[i], new Vector3(Random.Range(_minPositionX, _maxPositionX), 4.0f, 0.0f), Quaternion.identity);
+                Instantiate(wavesConfigurations[CurrentWave - 1].numberOfEnemyTypesList[i], new Vector3(Random.Range(_minPositionX, _maxPositionX), positionY, 0.0f), Quaternion.identity);
                 yield return new WaitForSeconds(0.2f);
             }
         }
@@ -71,6 +74,7 @@ public class WavesManager : MonoBehaviour
             if (CurrentWave == wavesConfigurations.Length)
             {
                 GameScene gameScene = FindObjectOfType<GameScene>();
+                GameScore.UpdateTitle("YOU WON !");
                 gameScene.EndGame();
             }
             else

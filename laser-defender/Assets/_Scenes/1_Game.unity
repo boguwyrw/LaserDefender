@@ -10528,21 +10528,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5588965f0e0f4b445a86e1e3558735b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  positionY: 4.3
   wavesConfigurations:
   - numberOfEnemyTypesList:
     - {fileID: 147804, guid: 0235215c6406a4e5d93759ea07062947, type: 3}
     - {fileID: 147804, guid: afafef5715cace0468c5eb5421d20ac8, type: 3}
-    numberOfEnemies: 0300000003000000
+    numberOfEnemies: 0200000002000000
+  - numberOfEnemyTypesList:
+    - {fileID: 147804, guid: 0235215c6406a4e5d93759ea07062947, type: 3}
+    numberOfEnemies: 04000000
   - numberOfEnemyTypesList:
     - {fileID: 147804, guid: 0235215c6406a4e5d93759ea07062947, type: 3}
     numberOfEnemies: 06000000
   - numberOfEnemyTypesList:
     - {fileID: 147804, guid: 0235215c6406a4e5d93759ea07062947, type: 3}
-    numberOfEnemies: 09000000
-  - numberOfEnemyTypesList:
-    - {fileID: 147804, guid: 0235215c6406a4e5d93759ea07062947, type: 3}
     - {fileID: 147804, guid: afafef5715cace0468c5eb5421d20ac8, type: 3}
-    numberOfEnemies: 0600000006000000
+    numberOfEnemies: 0400000004000000
 --- !u!1 &1731418866
 GameObject:
   m_ObjectHideFlags: 0

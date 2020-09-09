@@ -10,8 +10,14 @@ public static class GameScore
     public delegate void WavesUpdated();
     public static event WavesUpdated E_WavesUpdated;
 
-    public static int WavesCleared { get; set; }
+    public delegate void TitleUpdated();
+    public static event TitleUpdated E_TitleUpdated;
+
     public static int CurrentScore { get; private set; }
+
+    public static int WavesCleared { get; private set; }
+
+    public static string CurrentTitle { get; private set; }
 
     public static void ResetScore()
     {
@@ -35,5 +41,10 @@ public static class GameScore
     {
         WavesCleared = waveToAdd;
         E_WavesUpdated?.Invoke();
+    }
+
+    public static void UpdateTitle(string addedTitle)
+    {
+        CurrentTitle = addedTitle;
     }
 }

@@ -38,7 +38,7 @@ public class PlayerShip : MonoBehaviour {
 	private float _maxPosX;
 
 	private float _mainGunFireInterval;
-	
+
 	public void SetupAndStart()
 	{
 		_shipTransform = this.GetComponent<Transform>();
@@ -121,7 +121,7 @@ public class PlayerShip : MonoBehaviour {
 				Instantiate(_shipExplosion, _shipTransform.position, Quaternion.identity);
 				
 				FindObjectOfType<GameScene>().EndGame();
-				
+				GameScore.UpdateTitle("GAME OVER !");
 				Destroy(this.gameObject);
 			} 
 		}

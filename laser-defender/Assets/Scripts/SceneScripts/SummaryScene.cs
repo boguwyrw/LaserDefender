@@ -10,6 +10,7 @@ public class SummaryScene : SceneControllerBase
     
     [SerializeField] private Text _scoreValue = null;
     [SerializeField] private Text _wavesValue = null;
+    [SerializeField] private Text _title;
     
     [SerializeField] private string _playAgainSceneName = null;
     [SerializeField] private string _mainMenuSceneName = null;
@@ -21,7 +22,7 @@ public class SummaryScene : SceneControllerBase
 
         _scoreValue.text = GameScore.CurrentScore.ToString();
         _wavesValue.text = GameScore.WavesCleared.ToString();
-
+        _title.text = GameScore.CurrentTitle;
     }
 
 }

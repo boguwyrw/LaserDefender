@@ -4,6 +4,7 @@ The goal of the task was implementing an enemy waves spawning mechanism.
 Two classes were created:
 1. WavesManager
 2. WavesConfiguration
+
 WavesManager class is responsible for creating enemies, waves and for wave spawner mechanism.
 WavesConfiguration class is responsible for wave and enemy configurations in Unity Inspector.
 

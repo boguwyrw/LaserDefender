@@ -24,14 +24,14 @@ public class WavesManager : MonoBehaviour
         _maxPositionX = playSpaceWidth / 2f - 0.5f;
         _minPositionX = (playSpaceWidth / 2f - 0.5f) * -1f;
         CurrentWave = 1;
-
+        
         SetupWavesAndSpawn();
     }
 
     public void SetupWavesAndSpawn()
     {
-        StartCoroutine(CreateEnemy());
-
+        StartCoroutine(CoR_CreateEnemy());
+        
         SpawnNextWave();
     }
 
@@ -42,10 +42,10 @@ public class WavesManager : MonoBehaviour
 
     private void Update()
     {
-        FindingEnemies();
+        EnemyWavesSpawningMechanism();
     }
 
-    IEnumerator CreateEnemy()
+    private IEnumerator CoR_CreateEnemy()
     {
         for (int i = 0; i < wavesConfigurations[CurrentWave - 1].numberOfEnemyTypesList.Length; i++)
         {
@@ -58,23 +58,33 @@ public class WavesManager : MonoBehaviour
         yield break;
     }
 
-    private void FindingEnemies()
+    private void EnemyWavesSpawningMechanism()
     {
         if (GameObject.FindGameObjectWithTag("Enemies") == null)
         {
             if (CurrentWave == wavesConfigurations.Length)
             {
-                GameScene gameScene = FindObjectOfType<GameScene>();
-                string successTitle = "YOU WON !";
-                GameScore.UpdateTitle(successTitle);
-                gameScene.EndGame();
+                YouWonEndGame();
             }
             else
             {
-                CurrentWave++;
-                GameScore.UpdateWaves(CurrentWave);
-                SetupWavesAndSpawn();
+                NextWaveMechanism();
             }
         }
+    }
+
+    private void YouWonEndGame()
+    {
+        GameScene gameScene = FindObjectOfType<GameScene>();
+        string successTitle = "YOU WON !";
+        GameScore.UpdateTitle(successTitle);
+        gameScene.EndGame();
+    }
+
+    private void NextWaveMechanism()
+    {
+        CurrentWave++;
+        GameScore.UpdateWaves(CurrentWave);
+        SetupWavesAndSpawn();
     }
 }

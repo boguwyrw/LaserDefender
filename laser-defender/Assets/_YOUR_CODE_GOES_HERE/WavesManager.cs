@@ -60,16 +60,18 @@ public class WavesManager : MonoBehaviour
 
     private void EnemyWavesSpawningMechanism()
     {
-        if (GameObject.FindGameObjectWithTag("Enemies") == null)
+        if (EnemiesExist())
         {
-            if (CurrentWave == wavesConfigurations.Length)
-            {
-                YouWonEndGame();
-            }
-            else
-            {
-                NextWaveMechanism();
-            }
+            return;
+        }
+
+        if (IsLastWave())
+        {
+            YouWonEndGame();
+        }
+        else
+        {
+            NextWaveMechanism();
         }
     }
 
@@ -86,5 +88,15 @@ public class WavesManager : MonoBehaviour
         CurrentWave++;
         GameScore.UpdateWaves(CurrentWave);
         SetupWavesAndSpawn();
+    }
+
+    private bool EnemiesExist()
+    {
+        return GameObject.FindGameObjectWithTag("Enemies") != null;
+    }
+
+    private bool IsLastWave()
+    {
+        return CurrentWave == wavesConfigurations.Length;
     }
 }
